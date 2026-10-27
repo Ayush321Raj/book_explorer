@@ -1,0 +1,256 @@
+:root {
+    color-scheme: light;
+    --navy: #102a43;
+    --navy-deep: #0b1f33;
+    --blue: #2477c8;
+    --blue-light: #eaf4fc;
+    --ink: #243b53;
+    --muted: #627d98;
+    --surface: #ffffff;
+    --page: #f5f9fc;
+    --border: #d9e6f0;
+    --shadow: 0 12px 30px rgba(16, 42, 67, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(100% - 40px, 1080px);
+    margin: 0 auto;
+}
+
+.site-header {
+    background: var(--navy);
+    color: var(--surface);
+}
+
+.header-content {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--surface);
+    font-size: 1.2rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+}
+
+.header-note {
+    color: #c9dced;
+    font-size: 0.9rem;
+}
+
+main {
+    flex: 1;
+}
+
+.intro {
+    padding: 76px 0 64px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    max-width: 680px;
+    margin: 0 auto 16px;
+    color: var(--navy-deep);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    letter-spacing: -0.045em;
+    line-height: 1.12;
+}
+
+.intro-copy {
+    max-width: 590px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.load-button {
+    min-height: 48px;
+    padding: 12px 26px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--blue);
+    box-shadow: 0 5px 12px rgba(36, 119, 200, 0.2);
+    color: var(--surface);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.load-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: #1b65ad;
+    box-shadow: 0 8px 18px rgba(36, 119, 200, 0.25);
+}
+
+.load-button:focus-visible {
+    outline: 3px solid #8bc6f4;
+    outline-offset: 3px;
+}
+
+.load-button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+}
+
+.results {
+    padding: 30px 0 72px;
+    border-top: 1px solid var(--border);
+}
+
+.results-heading {
+    margin-bottom: 22px;
+}
+
+.results-heading h2 {
+    margin-bottom: 4px;
+    color: var(--navy);
+    font-size: 1.45rem;
+}
+
+.results-heading p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+.status-message {
+    margin: 0 0 20px;
+    color: var(--muted);
+}
+
+.status-message:empty {
+    display: none;
+}
+
+.status-message.is-error {
+    color: #a33434;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.book-card {
+    min-height: 148px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(16, 42, 67, 0.12);
+}
+
+.book-card h3 {
+    margin: 0 0 16px;
+    color: var(--navy);
+    font-size: 1.05rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.book-author {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.book-author strong {
+    color: var(--ink);
+    font-weight: 650;
+}
+
+.site-footer {
+    padding: 20px 0;
+    background: var(--navy);
+    color: #c9dced;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: min(100% - 32px, 1080px);
+    }
+
+    .header-content {
+        min-height: 64px;
+    }
+
+    .header-note {
+        max-width: 150px;
+        text-align: right;
+    }
+
+    .intro {
+        padding: 58px 0 48px;
+    }
+
+    .intro-copy {
+        font-size: 1rem;
+    }
+
+    .results {
+        padding-bottom: 52px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
